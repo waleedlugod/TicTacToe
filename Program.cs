@@ -8,7 +8,7 @@ namespace TicTacToe
         {
             Board b = new Board();
             string winner = "Nobody";
-            string str, turn;
+            string str, player;
             int box;
 
             Console.WriteLine(
@@ -24,14 +24,14 @@ namespace TicTacToe
             {
                 do
                 {
-                    turn = b.getTurn().ToString();
-                    Console.Write("Enter box " + turn + " : ");
+                    player = b.getTurn().ToString();
+                    Console.Write(player + " please select a box: ");
                     str = Console.ReadLine();
 
                     str = str.ToUpper();
                     if(str == "QUIT")
                     {
-                        throw new Exception("Quit game...");
+                        return;
                     }
                 } while(!b.validInput(str));
                 box = int.Parse(str);
@@ -51,6 +51,7 @@ namespace TicTacToe
             }
 
             Console.WriteLine(winner + " wins!!!");
+            Console.ReadLine();
         }
     }
 }
