@@ -12,6 +12,7 @@ namespace TicTacToe
         public bool win();
         public PlayerTurn getTurn();
         public bool validInput (string str);
+        public bool isFull();
     }
 
     public class Board : IBoard
@@ -48,6 +49,22 @@ namespace TicTacToe
             int x, y;
             boxToCoord(box, out x, out y);
             board[x,y] = state;
+        }
+        public bool isFull()
+        {
+            // checks if board is full
+            for(int y = 0; y < 3; y++)
+            {
+                for(int x = 0; x < 3; x++)
+                {
+                    if(board[x, y] == BoxState.Empty)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
         }
         public bool win()
         {
