@@ -177,6 +177,13 @@ namespace TicTacToe
 
                     pos++;
                 }
+                /*
+                go to the next row of the numpad
+                    7 8 9
+                    4 5 6
+                    1 2 3
+                subtract by 6 instead of 5 because pos incriments 4 times instead of 3
+                */
                 pos -= 6;
 
                 Console.WriteLine();
